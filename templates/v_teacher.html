@@ -1,0 +1,45 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+<div class="section events" id="events">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="section-heading">
+            <h2>Users List </h2>
+          </div>
+        </div>
+                    
+                    <table class="table">
+                        
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email </th>
+                                <th>Phone</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              {% for i in result %}
+                                <td class="name-pr">{{i.name}}</td>
+                                <td class="price-pr">{{i.email}}</td>
+                                <td class="quantity-box">{{i.phone}}</td>
+                               
+                           
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+           
+        </div>
+    </div>
+  </div>
+   
+
+{% include 'footer.html' %}
+
+  {% endblock %}
