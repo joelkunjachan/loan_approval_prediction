@@ -1,0 +1,45 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+<div class="section events" id="events">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="section-heading">
+            <h6>Questions</h6>
+            <h2>Answer Questions </h2>
+          </div>
+        </div>
+        {% for i in result %}
+        <div class="col-lg-12 col-md-6">
+          <div class="item">
+            <div class="row">
+             
+              <div class="col-lg-12">
+                <ul>
+                  <li style="width: 900px;">
+                    <span class="category">Question</span>
+                    <h4>{{i.question}}</h4>
+                  </li>
+                 
+                 
+                  <!-- <li style="width: fit-content;">
+                  
+                    <h6>Give Your Answer <i class="fa fa-arrow-right"></i> </h6>
+                  </li> -->
+                </ul>
+                <a href="answer/{{i.id}}">Give Your Answer Here <i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% include 'footer.html' %}
+
+  {% endblock %}

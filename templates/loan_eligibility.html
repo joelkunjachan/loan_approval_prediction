@@ -1,0 +1,122 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+<!-- Left Side -->
+<section class="intro-single" style="padding-top: 150px;">
+  <div class="container">
+    <div class="row">
+        <!-- Left Side -->
+        <div class="col-md-6">
+            <div class="title-single-box">
+                <h1 class="title-single">Check Loan Eligibility</h1>
+                <form action="check_eligibility" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+      
+                      <!-- Source Address -->
+                      <div class="col-md-6">
+                        <label for="dstadd" class="form-label">Gender</label>
+                        <select name="Gender" id="" class="form-control" required>
+                          <option value="1">Male</option>
+                          <option value="0">Female</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="srcadd" class="form-label">Married</label>
+                        <select name="Married" id="" class="form-control">
+                          <option value="1">Yes</option>
+                          <option value="0">No</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="srcadd" class="form-label">Dependents</label>
+                        <select name="Dependents" id="" class="form-control">
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3+">3+</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="srcadd" class="form-label">Education</label>
+                        <select name="Education" id="" class="form-control">
+                            <option value="0">Not Graduate</option>
+                            <option value="1">Graduate</option>
+                        </select>
+                      </div>
+
+
+                      <div class="col-md-6">
+                        <label for="srcadd" class="form-label">Self Employed</label>
+                        <select name="Self_Employed" id="" class="form-control">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="dstadd" class="form-label">Applicant Income</label>
+                        <input type="number" name="ApplicantIncome" class="form-control" placeholder="Enter Applicant Income" step="1" min="0" required>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="dstadd" class="form-label">Coapplicant Income</label>
+                        <input type="number" name="CoapplicantIncome" class="form-control" placeholder="Enter Coapplicant Income" step="1" min="0" required>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="dstadd" class="form-label">Loan Amount</label>
+                        <input type="number" name="LoanAmount" class="form-control" placeholder="Enter Loan Amount" step="1" min="0" required>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="dstadd" class="form-label">Loan Term(In Days)</label>
+                        <input type="number" name="Loan_Amount_Term" class="form-control" placeholder="Enter Loan Term" step="1" min="1" required>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="srcadd" class="form-label">Credit History</label>
+                        <select name="Credit_History" id="" class="form-control">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="srcadd" class="form-label">Property Area</label>
+                        <select name="Property_Area" id="" class="form-control">
+                            <option value="0">Rural</option>
+                            <option value="1">Semiurban</option>
+                            <option value="2">Urban</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6"></div><br><br>
+                     
+                      <button type="submit" class="btn btn-primary px-4">Check</button>
+                    </div>
+                  </form>
+            </div>
+        </div>
+        <!-- Right Side -->
+        <div class="col-md-6">
+            {% if result %}
+            <div class="title-single-box">
+                <h1 class="title-single">Loan Acceptance Rate</h1>
+                <h2>{{result}}/100</h2>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+   
+</div>
+
+</section>
+
+{% include 'footer.html' %}
+
+  {% endblock %}
