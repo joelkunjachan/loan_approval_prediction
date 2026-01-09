@@ -1,0 +1,146 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+<!-- Left Side -->
+<section class="intro-single" style="padding-top: 150px;">
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="title-single-box">
+                <h1 class="title-single text-center">Apply for Loan</h1>
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4 class="mb-0"><i class="fas fa-file-signature"></i> Loan Application Form</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="" enctype="multipart/form-data" method="post">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="gender" class="form-label">
+                                        <i class="fas fa-venus-mars"></i> Gender
+                                    </label>
+                                    <select name="Gender" id="gender" class="form-control" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="1">Male</option>
+                                        <option value="0">Female</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="married" class="form-label">
+                                        <i class="fas fa-ring"></i> Married
+                                    </label>
+                                    <select name="Married" id="married" class="form-control">
+                                        <option value="">Select Status</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="dependents" class="form-label">
+                                        <i class="fas fa-users"></i> Dependents
+                                    </label>
+                                    <select name="Dependents" id="dependents" class="form-control">
+                                        <option value="">Select Dependents</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3+">3+</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="education" class="form-label">
+                                        <i class="fas fa-graduation-cap"></i> Education
+                                    </label>
+                                    <select name="Education" id="education" class="form-control">
+                                        <option value="">Select Education</option>
+                                        <option value="0">Not Graduate</option>
+                                        <option value="1">Graduate</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="self_employed" class="form-label">
+                                        <i class="fas fa-briefcase"></i> Self Employed
+                                    </label>
+                                    <select name="Self_Employed" id="self_employed" class="form-control">
+                                        <option value="">Select</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="applicant_income" class="form-label">
+                                        <i class="fas fa-dollar-sign"></i> Applicant Income
+                                    </label>
+                                    <input type="number" name="ApplicantIncome" id="applicant_income" class="form-control" placeholder="Enter Applicant Income" step="1" min="0" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="coapplicant_income" class="form-label">
+                                        <i class="fas fa-dollar-sign"></i> Coapplicant Income
+                                    </label>
+                                    <input type="number" name="CoapplicantIncome" id="coapplicant_income" class="form-control" placeholder="Enter Coapplicant Income" step="1" min="0" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="loan_amount" class="form-label">
+                                        <i class="fas fa-money-bill-wave"></i> Loan Amount
+                                    </label>
+                                    <input type="number" name="LoanAmount" id="loan_amount" class="form-control" placeholder="Enter Loan Amount" step="1" min="0" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="loan_term" class="form-label">
+                                        <i class="fas fa-calendar-alt"></i> Loan Term (Days)
+                                    </label>
+                                    <input type="number" name="Loan_Amount_Term" id="loan_term" class="form-control" placeholder="Enter Loan Term" step="1" min="1" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="credit_history" class="form-label">
+                                        <i class="fas fa-history"></i> Credit History
+                                    </label>
+                                    <select name="Credit_History" id="credit_history" class="form-control">
+                                        <option value="">Select</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="property_area" class="form-label">
+                                        <i class="fas fa-home"></i> Property Area
+                                    </label>
+                                    <select name="Property_Area" id="property_area" class="form-control">
+                                        <option value="">Select Area</option>
+                                        <option value="0">Rural</option>
+                                        <option value="1">Semiurban</option>
+                                        <option value="2">Urban</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg px-5">
+                                        <i class="fas fa-paper-plane"></i> Submit Application
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+{% include 'footer.html' %}
+
+  {% endblock %}

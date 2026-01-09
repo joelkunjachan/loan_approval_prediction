@@ -6,115 +6,180 @@
 <!-- Left Side -->
 <section class="intro-single" style="padding-top: 150px;">
   <div class="container">
-    <div class="row">
-        <!-- Left Side -->
-        <div class="col-md-6">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
             <div class="title-single-box">
-                <h1 class="title-single">Check Loan Eligibility</h1>
-                <form action="check_eligibility" enctype="multipart/form-data" method="post">
-                    {% csrf_token %}
-                    <div class="row g-3">
-      
-                      <!-- Source Address -->
-                      <div class="col-md-6">
-                        <label for="dstadd" class="form-label">Gender</label>
-                        <select name="Gender" id="" class="form-control" required>
-                          <option value="1">Male</option>
-                          <option value="0">Female</option>
-                        </select>
-                      </div>
+                <h1 class="title-single text-center">Check Loan Eligibility</h1>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card shadow">
+                            <div class="card-header bg-success text-white text-center">
+                                <h4 class="mb-0"><i class="fas fa-calculator"></i> Eligibility Calculator</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="check_eligibility" enctype="multipart/form-data" method="post">
+                                    {% csrf_token %}
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="gender" class="form-label">
+                                                <i class="fas fa-venus-mars"></i> Gender
+                                            </label>
+                                            <select name="Gender" id="gender" class="form-control" required>
+                                                <option value="">Select Gender</option>
+                                                <option value="1">Male</option>
+                                                <option value="0">Female</option>
+                                            </select>
+                                        </div>
 
-                      <div class="col-md-6">
-                        <label for="srcadd" class="form-label">Married</label>
-                        <select name="Married" id="" class="form-control">
-                          <option value="1">Yes</option>
-                          <option value="0">No</option>
-                        </select>
-                      </div>
+                                        <div class="col-md-6">
+                                            <label for="married" class="form-label">
+                                                <i class="fas fa-ring"></i> Married
+                                            </label>
+                                            <select name="Married" id="married" class="form-control">
+                                                <option value="">Select Status</option>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
 
-                      <div class="col-md-6">
-                        <label for="srcadd" class="form-label">Dependents</label>
-                        <select name="Dependents" id="" class="form-control">
-                          <option value="0">0</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3+">3+</option>
-                        </select>
-                      </div>
+                                        <div class="col-md-6">
+                                            <label for="dependents" class="form-label">
+                                                <i class="fas fa-users"></i> Dependents
+                                            </label>
+                                            <select name="Dependents" id="dependents" class="form-control">
+                                                <option value="">Select Dependents</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3+">3+</option>
+                                            </select>
+                                        </div>
 
-                      <div class="col-md-6">
-                        <label for="srcadd" class="form-label">Education</label>
-                        <select name="Education" id="" class="form-control">
-                            <option value="0">Not Graduate</option>
-                            <option value="1">Graduate</option>
-                        </select>
-                      </div>
+                                        <div class="col-md-6">
+                                            <label for="education" class="form-label">
+                                                <i class="fas fa-graduation-cap"></i> Education
+                                            </label>
+                                            <select name="Education" id="education" class="form-control">
+                                                <option value="">Select Education</option>
+                                                <option value="0">Not Graduate</option>
+                                                <option value="1">Graduate</option>
+                                            </select>
+                                        </div>
 
+                                        <div class="col-md-6">
+                                            <label for="self_employed" class="form-label">
+                                                <i class="fas fa-briefcase"></i> Self Employed
+                                            </label>
+                                            <select name="Self_Employed" id="self_employed" class="form-control">
+                                                <option value="">Select</option>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
 
-                      <div class="col-md-6">
-                        <label for="srcadd" class="form-label">Self Employed</label>
-                        <select name="Self_Employed" id="" class="form-control">
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
-                        </select>
-                      </div>
+                                        <div class="col-md-6">
+                                            <label for="applicant_income" class="form-label">
+                                                <i class="fas fa-dollar-sign"></i> Applicant Income
+                                            </label>
+                                            <input type="number" name="ApplicantIncome" id="applicant_income" class="form-control" placeholder="Enter Applicant Income" step="1" min="0" required>
+                                        </div>
 
-                      <div class="col-md-6">
-                        <label for="dstadd" class="form-label">Applicant Income</label>
-                        <input type="number" name="ApplicantIncome" class="form-control" placeholder="Enter Applicant Income" step="1" min="0" required>
-                      </div>
+                                        <div class="col-md-6">
+                                            <label for="coapplicant_income" class="form-label">
+                                                <i class="fas fa-dollar-sign"></i> Coapplicant Income
+                                            </label>
+                                            <input type="number" name="CoapplicantIncome" id="coapplicant_income" class="form-control" placeholder="Enter Coapplicant Income" step="1" min="0" required>
+                                        </div>
 
-                      <div class="col-md-6">
-                        <label for="dstadd" class="form-label">Coapplicant Income</label>
-                        <input type="number" name="CoapplicantIncome" class="form-control" placeholder="Enter Coapplicant Income" step="1" min="0" required>
-                      </div>
+                                        <div class="col-md-6">
+                                            <label for="loan_amount" class="form-label">
+                                                <i class="fas fa-money-bill-wave"></i> Loan Amount
+                                            </label>
+                                            <input type="number" name="LoanAmount" id="loan_amount" class="form-control" placeholder="Enter Loan Amount" step="1" min="0" required>
+                                        </div>
 
-                      <div class="col-md-6">
-                        <label for="dstadd" class="form-label">Loan Amount</label>
-                        <input type="number" name="LoanAmount" class="form-control" placeholder="Enter Loan Amount" step="1" min="0" required>
-                      </div>
+                                        <div class="col-md-6">
+                                            <label for="loan_term" class="form-label">
+                                                <i class="fas fa-calendar-alt"></i> Loan Term (Days)
+                                            </label>
+                                            <input type="number" name="Loan_Amount_Term" id="loan_term" class="form-control" placeholder="Enter Loan Term" step="1" min="1" required>
+                                        </div>
 
-                      <div class="col-md-6">
-                        <label for="dstadd" class="form-label">Loan Term(In Days)</label>
-                        <input type="number" name="Loan_Amount_Term" class="form-control" placeholder="Enter Loan Term" step="1" min="1" required>
-                      </div>
+                                        <div class="col-md-6">
+                                            <label for="credit_history" class="form-label">
+                                                <i class="fas fa-history"></i> Credit History
+                                            </label>
+                                            <select name="Credit_History" id="credit_history" class="form-control">
+                                                <option value="">Select</option>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
 
-                      <div class="col-md-6">
-                        <label for="srcadd" class="form-label">Credit History</label>
-                        <select name="Credit_History" id="" class="form-control">
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
-                        </select>
-                      </div>
+                                        <div class="col-md-6">
+                                            <label for="property_area" class="form-label">
+                                                <i class="fas fa-home"></i> Property Area
+                                            </label>
+                                            <select name="Property_Area" id="property_area" class="form-control">
+                                                <option value="">Select Area</option>
+                                                <option value="0">Rural</option>
+                                                <option value="1">Semiurban</option>
+                                                <option value="2">Urban</option>
+                                            </select>
+                                        </div>
 
-                      <div class="col-md-6">
-                        <label for="srcadd" class="form-label">Property Area</label>
-                        <select name="Property_Area" id="" class="form-control">
-                            <option value="0">Rural</option>
-                            <option value="1">Semiurban</option>
-                            <option value="2">Urban</option>
-                        </select>
-                      </div>
-                      <div class="col-md-6"></div><br><br>
-                     
-                      <button type="submit" class="btn btn-primary px-4">Check</button>
+                                        <div class="col-12 text-center mt-4">
+                                            <button type="submit" class="btn btn-success btn-lg px-5">
+                                                <i class="fas fa-search"></i> Check Eligibility
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                  </form>
+                    <div class="col-lg-4">
+                        {% if result %}
+                        <div class="card shadow border-success">
+                            <div class="card-header bg-success text-white text-center">
+                                <h5 class="mb-0"><i class="fas fa-chart-line"></i> Eligibility Result</h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="mb-3">
+                                    <h1 class="display-4 text-success font-weight-bold">{{ result }}/100</h1>
+                                    <p class="text-muted">Loan Acceptance Rate</p>
+                                </div>
+                                {% if result >= 70 %}
+                                <div class="alert alert-success">
+                                    <i class="fas fa-check-circle"></i> Congratulations! You have a high chance of loan approval.
+                                </div>
+              
+                                {% elif result >= 50 %}
+                                <div class="alert alert-warning">
+                                    <i class="fas fa-exclamation-triangle"></i> Moderate chance. Consider improving your credit profile.
+                                </div>
+                                {% else %}
+                                <div class="alert alert-danger">
+                                    <i class="fas fa-times-circle"></i> Low chance. You may need to improve your eligibility factors.
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="card shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-info-circle fa-3x text-muted mb-3"></i>
+                                <h5 class="text-muted">Check Your Eligibility</h5>
+                                <p class="text-muted">Fill out the form to see your loan eligibility score.</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-        </div>
-        <!-- Right Side -->
-        <div class="col-md-6">
-            {% if result %}
-            <div class="title-single-box">
-                <h1 class="title-single">Loan Acceptance Rate</h1>
-                <h2>{{result}}/100</h2>
-            </div>
-            {% endif %}
         </div>
     </div>
-   
-</div>
-
+  </div>
 </section>
 
 {% include 'footer.html' %}

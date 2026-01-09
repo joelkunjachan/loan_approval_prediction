@@ -1,0 +1,97 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+<!-- Left Side -->
+<section class="intro-single" style="padding-top: 150px;">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="title-single-box">
+                <h1 class="title-single text-center">My Loan Applications</h1>
+                {% if applications %}
+                <div class="row justify-content-center">
+                    {% for app in applications %}
+                    <div class="col-lg-5 col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="card-title mb-0">
+                                    <i class="fas fa-file-alt"></i> Application #{{ app.id }}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="mb-1"><strong>Gender:</strong> {{ app.gender }}</p>
+                                        <p class="mb-1"><strong>Married:</strong> {{ app.married }}</p>
+                                        <p class="mb-1"><strong>Dependents:</strong> {{ app.dependents }}</p>
+                                        <p class="mb-1"><strong>Education:</strong> {{ app.education }}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-1"><strong>Self Employed:</strong> {{ app.self_employed }}</p>
+                                        <p class="mb-1"><strong>Applicant Income:</strong> ${{ app.applicant_income }}</p>
+                                        <p class="mb-1"><strong>Coapplicant Income:</strong> ${{ app.coapplicant_income }}</p>
+                                        <p class="mb-1"><strong>Loan Amount:</strong> ${{ app.loan_amount }}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="mb-1"><strong>Loan Term:</strong> {{ app.loan_amount_term }} days</p>
+                                        <p class="mb-1"><strong>Credit History:</strong> {{ app.credit_history }}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-1"><strong>Property Area:</strong> {{ app.property_area }}</p>
+                                        <p class="mb-1"><strong>Eligibility Score:</strong> {{ app.result_prob }}/100</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <i class="fas fa-calendar"></i> Applied on {{ app.applied_date|date:"M d, Y" }}
+                                    </small>
+                                    <div>
+                                        {% if app.application_status == 'pending' %}
+                                            <span class="badge bg-warning text-dark">
+                                                <i class="fas fa-clock"></i> Pending
+                                            </span>
+                                        {% elif app.application_status == 'approved' %}
+                                            <span class="badge bg-success">
+                                                <i class="fas fa-check"></i> Approved
+                                            </span>
+                                        {% elif app.application_status == 'rejected' %}
+                                            <span class="badge bg-danger">
+                                                <i class="fas fa-times"></i> Rejected
+                                            </span>
+                                        {% else %}
+                                            <span class="badge bg-secondary">{{ app.application_status|default:'Pending' }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="fas fa-file-alt fa-3x text-muted mb-3"></i>
+                    <h4 class="text-muted">No Loan Applications Yet</h4>
+                    <p class="text-muted">You haven't submitted any loan applications. Start your journey today!</p>
+                    <a href="{% url 'apply_loan' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-plus"></i> Apply for Loan
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+{% include 'footer.html' %}
+
+  {% endblock %}
